@@ -1,0 +1,132 @@
+.video-wrapper {
+  display: none;
+}
+
+.video-wrapper.active {
+  display: block;
+}
+
+.rtp-item .play-bar {
+  height: 5px;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+
+.rtp-item .play-bar-progress {
+  width: 0%;
+  background-color: #00aaff;
+  transition: width 10s linear;
+}
+/* third.css */
+
+/* For the progress bar styling */
+.play-bar {
+  height: 4px; /* Adjust thickness of the bar */
+  background-color: #4b5563; /* Tailwind's grey-500 */
+  overflow: hidden;
+}
+
+.play-bar-progress {
+  height: 100%;
+  background-color: #3b82f6; /* Tailwind's blue-500 */
+  transition: width 0.1s ease-in-out; /* Smooth animation for progress */
+}
+/* styles.css */
+.cards-container {
+  position: relative;
+  perspective: 800px;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  max-width: 440px;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card:nth-child(1) {
+  z-index: 4;
+  transform: translate(-50%, -30%) translateZ(100px);
+  animation: animateCard1 8s infinite linear;
+}
+
+.card:nth-child(2) {
+  z-index: 3;
+  transform: translate(-50%, -50%) translateZ(50px);
+  animation: animateCard2 8s infinite linear;
+}
+
+.card:nth-child(3) {
+  z-index: 2;
+  transform: translate(-50%, -70%) translateZ(0);
+  animation: animateCard3 8s infinite linear;
+}
+
+.card:nth-child(4) {
+  z-index: 1;
+  transform: translate(-50%, -90%) translateZ(-50px);
+  animation: animateCard4 8s infinite linear;
+}
+
+/* Keyframe animations for each card */
+@keyframes animateCard1 {
+  0%,
+  100% {
+    transform: translate(-50%, -30%) translateZ(100px);
+  }
+  50% {
+    transform: translate(-50%, -10%) translateZ(150px);
+  }
+}
+
+@keyframes animateCard2 {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translateZ(50px);
+  }
+  50% {
+    transform: translate(-50%, -30%) translateZ(100px);
+  }
+}
+
+@keyframes animateCard3 {
+  0%,
+  100% {
+    transform: translate(-50%, -70%) translateZ(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateZ(50px);
+  }
+}
+
+@keyframes animateCard4 {
+  0%,
+  100% {
+    transform: translate(-50%, -90%) translateZ(-50px);
+  }
+  50% {
+    transform: translate(-50%, -70%) translateZ(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:w-6\/12 {
+    width: 50%;
+  }
+}
+
+@media (min-width: 640px) {
+  .sm\:h-96 {
+    height: 24rem;
+  }
+}
