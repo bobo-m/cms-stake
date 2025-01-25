@@ -12,6 +12,7 @@ const App = () => {
       try {
         const response = await fetch("http://localhost:4000/admin/api-services");
         const componentData = await response.json();
+        console.log(componentData)
         setData(componentData);
       } catch (error) {
         console.log(error)

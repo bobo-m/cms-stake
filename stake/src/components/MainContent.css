@@ -393,7 +393,7 @@ element.style {
 }
 
 .main1 {
-  background-image: url("D:\stake\stake\src\assets\stake.BFmdy97X.svg"); /* Ensure the path is correct */
+  background-image: url("../assets/stake.BFmdy97X.svg"); /* Ensure the path is correct */
   background-repeat: no-repeat; /* No repetition of the SVG */
   background-size: contain; /* Adjust size to fit the container */
   background-position: center; /* Center the SVG */
@@ -500,14 +500,14 @@ body {
 }
 
 .banner2 {
-  background-image: url("D:/stake/stake/src/assets/blue-gradient.U5jrOHhx.svg"); /* Ensure the path is correct */
+  background-image: url("../assets/blue-gradient.U5jrOHhx.svg"); /* Ensure the path is correct */
   background-repeat: no-repeat; /* No repetition of the SVG */
 
   box-sizing: border-box; /* Ensure padding is included within the width */
   border-radius: 15px !important;
 }
 .banner3 {
-  background-image: url("D:/stake/stake/src/assets/green-gradient.B1xn5Pix.svg"); /* Ensure the path is correct */
+  background-image: url("../assets/green-gradient.B1xn5Pix.svg"); /* Ensure the path is correct */
   background-repeat: no-repeat; /* No repetition of the SVG */
   width: 100%; /* Ensure the width takes up the full container */
   border-radius: 15px !important;

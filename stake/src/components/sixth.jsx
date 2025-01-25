@@ -1,8 +1,8 @@
 // Import necessary modules
 import React from "react";
 import "./sixth.css"; // CSS for styling
-import bgImage from "D:/stake/stake/src/assets/sponsorship-bg-red.CvuHUVge.svg";
-import bgImage2 from "D:/stake/stake/src/assets/sponsorship-bg-blue.DxmQOpu9.svg";
+import bgImage from "../assets/sponsorship-bg-red.CvuHUVge.svg";
+import bgImage2 from "../assets/sponsorship-bg-blue.DxmQOpu9.svg";
 
 const SixComponent = () => {
   return (

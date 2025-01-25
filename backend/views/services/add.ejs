@@ -83,9 +83,9 @@
     const maxImageInputs= 5;
     let imageInputCount =1;
     const imageInputs = document.getElementById("image-inputs");
-    const addButton = document.getElementById("add-image-button");
+    const addImageButton = document.getElementById("add-image-button");
 
-    addButton.addEventListener("click", (e)=>{
+    addImageButton.addEventListener("click", (e)=>{
         if(imageInputCount >= maxImageInputs) return
         e.preventDefault();
 
@@ -117,7 +117,7 @@
     })
 
     const maxHeadingInputs = 5;
-    const headingInputCount =1
+    let headingInputCount =1
     const headingInputs = document.getElementById("heading-inputs");
     const addHeadingInputs = document.getElementById("add-heading-button");
 
@@ -151,7 +151,7 @@
     })
 
     const maxParagraphsInputs = 5;
-    const paragraphInputCount = 1;
+    let paragraphInputCount = 1;
     const paragraphInputs = document.getElementById("paragraph-inputs");
     const addParagraphInputs = document.getElementById("add-paragraph-button");
 
@@ -182,8 +182,6 @@
         wrapper.appendChild(closeButton);
         paragraphInputs.appendChild(wrapper);
     });
-
-    
 
 </script>
            

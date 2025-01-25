@@ -5,6 +5,8 @@ const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const ApiFeatures = require('../utils/apiFeatures');
 const db = require('../config/mysql_database');
 const Joi = require('joi');
+const path = require('path');
+const fs = require('fs')
 
 const table_name = Model.table_name;
 const module_title = Model.module_title;
@@ -21,7 +23,6 @@ exports.addFrom = catchAsyncErrors(async (req, res, next) => {
 
 //create a new blog
 exports.createRecord = catchAsyncErrors(async (req, res, next) => {
-    console.log("started")
 
     try {
         await Model.insertSchema.validateAsync(req.body, { abortEarly: false, allowUnknown: true });
@@ -30,17 +31,12 @@ exports.createRecord = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler(error.details.map(d => d.message), 400));
     }
 
-    console.log("block1 cleared")
-
     const created_at = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
     const images = req.files ? req.files.map(file => file.filename) : [];
 
-    // Headings and paragraphs will be split from the incoming text (e.g., comma-separated values)
-    const headings = Array.isArray(req.body.heading) ? req.body.heading : [req.body.heading] || [];
-    const paragraphs = req.body.paragraph || [];
-
-    console.log(req.body)
+    const headings = req.body.heading ? Array.isArray(req.body.heading) ? req.body.heading : [req.body.heading] : req.body.heading;
+    const paragraphs = req.body.prargraph ? Array.isArray(req.body.paragraph) ? req.body.paragraph : [req.body.paragraph] : [];
 
     const insertData = {
         title: req.body.title,
@@ -77,25 +73,23 @@ exports.updateRecord = catchAsyncErrors(async (req, res, next) => {
 
     const created_at = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
-    const updatedSlug = req.body.slug || generateSlug(req.body.title);
+    const newImages = req.files ? req.files.map(file => file.filename) : [];
+    const oldImages = Array.isArray(req.body.old_image) ? req.body.old_image : [req.body.old_image];
 
-    req.body.image = req.body.old_image;
-    if (req.file) {
-        req.body.image = req.file.filename;
-    }
+    const images = [...oldImages, ...newImages];
+
+    const headings = req.body.heading ? Array.isArray(req.body.heading) ? req.body.heading : [req.body.heading] : req.body.heading;
+    const paragraphs = req.body.prargraph ? Array.isArray(req.body.paragraph) ? req.body.paragraph : [req.body.paragraph] : [];
+
 
     const updateData = {
         title: req.body.title,
-        slug: updatedSlug,
-        description: req.body.description,
-        meta_title: req.body.meta_title,
-        meta_keyword: req.body.meta_keyword,
-        meta_description: req.body.meta_description,
-        image: req.body.image,
+        images: JSON.stringify(images),
+        headings: JSON.stringify(headings),
+        paragraphs: JSON.stringify(paragraphs),
         status: req.body.status,
         // created_at: created_at,
         updated_at: created_at,
-        user_id: req.user.id
     }
 
     const blog = await QueryModel.findByIdAndUpdateData(table_name, req.params.id, updateData, next);
@@ -159,17 +153,39 @@ exports.getSingleRecord = catchAsyncErrors(async (req, res, next) => {
     if (!blog) {
         return;
     }
-    res.render(module_slug + '/detail', { layout: module_layout, title: module_single_title, blog })
+    res.render(module_slug + '/detail', { layout: module_layout, title: module_single_title, blog, module_slug })
 });
 
 
 exports.deleteImage = catchAsyncErrors(async (req, res, next) => {
-    const updateData = {
-        image: ""
+    const { id } = req.params;
+    const { image } = req.query;
+
+    if (!image) {
+        return next(new ErrorHandler("No image specified for deletion", 400));
     }
 
-    const blog = await QueryModel.findByIdAndUpdateData(table_name, req.params.id, updateData, next);
+    const blog = await QueryModel.findById(table_name, id, next);
 
+    if (!blog) {
+        return next(new ErrorHandler("Service not found", 404));
+    }
+
+    const updateData = {
+        images: JSON.stringify(blog.images.filter((imageFile) => imageFile !== image))
+    }
+
+    const newService = await QueryModel.findByIdAndUpdateData(table_name, id, updateData, next);
+
+    const imagePath = path.join(__dirname, "..", "uploads", "services", image);
+
+    if (fs.existsSync(imagePath)) {
+        fs.unlink(imagePath, (err) => {
+            if (err) {
+                return next(new ErrorHandler('Error deleting the image file', 500))
+            }
+        })
+    }
 
     req.flash('msg_response', { status: 200, message: 'Successfully updated ' + module_single_title });
 

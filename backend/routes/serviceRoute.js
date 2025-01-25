@@ -21,7 +21,7 @@ var upload = multer({ storage: Storage });
 router.route('/' + module_slug + '/add').get(isAuthenticatedUser, authorizeRoles('admin'), addFrom)
 router.route('/' + module_slug + '/add').post(upload.array('images', 10), isAuthenticatedUser, authorizeRoles('admin'), createRecord)
 router.route('/' + module_slug + '/edit/:id').get(isAuthenticatedUser, authorizeRoles('admin'), editForm)
-router.route('/' + module_slug + '/update/:id').post(upload.single('image'), isAuthenticatedUser, authorizeRoles('admin'), updateRecord)
+router.route('/' + module_slug + '/update/:id').post(upload.array('images', 10), isAuthenticatedUser, authorizeRoles('admin'), updateRecord)
 router.route('/' + module_slug + '/delete/:id').get(isAuthenticatedUser, authorizeRoles('admin'), deleteRecord)
 router.route('/' + module_slug + '').get(isAuthenticatedUser, authorizeRoles('admin'), getAllRecords)
 router.route('/' + module_slug + '/:id').get(isAuthenticatedUser, authorizeRoles('admin'), getSingleRecord)

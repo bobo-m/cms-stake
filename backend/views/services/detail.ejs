@@ -16,53 +16,48 @@
                                                 <input type="text" id="simpleinput"  class="form-control" value="<%= blog.title %>" readOnly>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 float-left">
-                                            <div class="mb-3">
-                                                <label for="simpleinput" class="form-label">Slug</label>
-                                                <input type="text" id="simpleinput" name="slug" class="form-control" value="<%= blog.slug %>" readOnly>
-                                            </div>
-                                        </div>
                                     </div>
                                        
                                     <div class="row">
-                                        <div class="col-lg-6 float-left">
-                                           
-                                        </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-lg-12 float-left">
-                                            <div class="mb-3">
-                                                <label for="simpleinput" class="form-label">Desc</label>
-                                                <textarea  class="form-control" id="editor" name="description" readOnly><%= blog.description %></textarea>
+                                            <div class="d-flex flex-wrap gap-3 mb-3">
+                                                <% if (blog.images && blog.images.length > 0) { %>
+                                                    <% (blog.images).forEach((image, index) => { %>
+                                                        <div>
+                                                            <img src="<%- '/uploads/' + module_slug + '/' + image %>" style="width:80px"/>
+                                                        </div>
+                                                    <% }); %>
+                                                <% } %>
                                             </div>
                                         </div>
                                     </div>
+                                    
+                                    <% if(blog.headings && blog.headings.length!==0) { %>
                                     <div class="row">
                                         <div class="col-lg-12 float-left">
-                                            <div class="mb-3">
-                                                <label for="simpleinput" class="form-label">Meta Title</label>
-                                                <input type="text" id="simpleinput" name="meta_title" class="form-control" value="<%= blog.meta_title %>" readOnly>
+                                            <div id="heading-inputs" class="mb-3">
+                                                <label for="simpleinput" class="form-label">Heading</label>
+                                                    <% blog.headings.forEach((heading, index) => { %>
+                                                        <textarea class="form-control" name="heading"><%= heading %></textarea>
+                                                    <% }); %>
                                             </div>
                                         </div>
                                     </div>
+                                    <% } %>
+
+                                    <% if(blog.paragraphs && blog.paragraphs.length!==0 ) { %>
                                     <div class="row">
                                         <div class="col-lg-12 float-left">
-                                            <div class="mb-3">
-                                                <label for="simpleinput" class="form-label">Meta Keyword</label>
-                                                <textarea class="form-control" name="meta_keyword" readOnly><%= blog.meta_keyword %></textarea>
+                                            <div id="paragraph-inputs" class="mb-3">
+                                                <label for="simpleinput" class="form-label">Paragraph</label>
+                                                <% blog.paragraphs.forEach((paragraph, index) => { %>
+                                                    <textarea class="form-control" name="paragraph"><%= paragraph %></textarea>
+                                                <% }); %>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-12 float-left">
-                                            <div class="mb-3">
-                                                <label for="simpleinput" class="form-label">Meta Description</label>
-                                                <textarea class="form-control" name="meta_description" readOnly><%= blog.meta_description %></textarea>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div>
+                                    <% } %>
+
                                     
                                 </div> <!-- end col -->
 
