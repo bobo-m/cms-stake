@@ -36,7 +36,9 @@ exports.createRecord = catchAsyncErrors(async (req, res, next) => {
     const images = req.files ? req.files.map(file => file.filename) : [];
 
     const headings = req.body.heading ? Array.isArray(req.body.heading) ? req.body.heading : [req.body.heading] : req.body.heading;
-    const paragraphs = req.body.prargraph ? Array.isArray(req.body.paragraph) ? req.body.paragraph : [req.body.paragraph] : [];
+    const paragraphs = req.body.paragraph ? Array.isArray(req.body.paragraph) ? req.body.paragraph : [req.body.paragraph] : [];
+
+    console.log(req.body, paragraphs)
 
     const insertData = {
         title: req.body.title,
@@ -79,7 +81,7 @@ exports.updateRecord = catchAsyncErrors(async (req, res, next) => {
     const images = [...oldImages, ...newImages];
 
     const headings = req.body.heading ? Array.isArray(req.body.heading) ? req.body.heading : [req.body.heading] : req.body.heading;
-    const paragraphs = req.body.prargraph ? Array.isArray(req.body.paragraph) ? req.body.paragraph : [req.body.paragraph] : [];
+    const paragraphs = req.body.paragraph ? Array.isArray(req.body.paragraph) ? req.body.paragraph : [req.body.paragraph] : [];
 
 
     const updateData = {
@@ -228,7 +230,7 @@ exports.apiGetAllRecords = catchAsyncErrors(async (req, res, next) => {
             id: row.id,
             title: row.title,
             headings: row.headings,
-            paragraph: row.paragraphs,
+            paragraphs: row.paragraphs,
             images: (row.images.map((image) => process.env.BACKEND_URL + '/uploads/' + module_slug + '/' + image))
 
         }));

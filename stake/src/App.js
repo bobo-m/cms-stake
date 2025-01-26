@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import MainContent from "./components/MainContent";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [data, setData] = useState("")
@@ -27,14 +27,17 @@ const App = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-900 text-white">
-      {/* Sidebar */}
-      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      {/* Main Content */}
-      <div className="flex-1">
-        <MainContent componentData={data.services} />
+    <>
+      <div className="flex min-h-screen bg-gray-900 text-white">
+        {/* Sidebar */}
+        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+        {/* Main Content */}
+        <div className="flex-1">
+          <MainContent componentData={data.services} />
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
