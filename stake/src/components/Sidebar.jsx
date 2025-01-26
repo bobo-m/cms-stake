@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, toggleSidebar }) => {
+    console.log(isOpen, toggleSidebar)
     return (
         <div
-            className="w-15 bg-[#0f212e] flex flex-col items-center py-4 space-y-6 h-auto"
+            className={`${
+                isOpen ? 'w-[240px]' : 'w-15'
+            } bg-[#0f212e] flex flex-col items-center py-4 space-y-6 h-auto`}
             style={{
                 height: '100vh', // Full viewport height
                 position: 'fixed', // To fix the div
@@ -11,62 +14,78 @@ const Sidebar = () => {
                 left: 0, // Positioning at the left side (if needed)
             }}
         >
-            <div
-                class="header svelte-1hoeywl collapsed"
-                style={{
-                    boxShadow:
-                        '0 4px 8px rgba(27, 23, 23, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1)',
-                    borderRadius: '5px 5px 5px 5px',
-                }}
-            >
-                <button
-                    className="menu-button svelte-1hoeywl collapsed"
-                    aria-label="Toggle Sidebar"
-                    data-test="left-sidebar-close"
-                    data-analytics="left-sidebar-close-button"
-                    style={{ marginTop: '-15px' }}
+            <div className={`${isOpen ? 'flex w-full' : ''} items-center`}>
+                <div
+                    class="header svelte-1hoeywl collapsed"
+                    style={{
+                        boxShadow:
+                            '0 4px 8px rgba(27, 23, 23, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1)',
+                        borderRadius: '5px 5px 5px 5px',
+                    }}
                 >
-                    <svg
-                        fill="currentColor"
-                        viewBox="0 0 64 64"
-                        class="svg-icon"
-                        width="66"
-                        height="66"
+                    <button
+                        className="menu-button svelte-1hoeywl collapsed"
+                        aria-label="Toggle Sidebar"
+                        data-test="left-sidebar-close"
+                        data-analytics="left-sidebar-close-button"
+                        style={{ marginTop: '-15px' }}
+                        onClick={toggleSidebar}
                     >
-                        {' '}
-                        <title></title>{' '}
-                        <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M0 0h64v13H0V0Zm0 25.5h64v13H0v-13ZM64 51H0v13h64V51Z"
-                        ></path>
-                    </svg>
-                </button>{' '}
-            </div>
-            <div
-                class="link-wrap svelte-1hoeywl collapsed"
-                style={{ marginTop: '-15px' }}
-            >
-                <a
-                    class="header-button casino collapsed svelte-jby8ge"
-                    data-sveltekit-preload-data="hover"
-                    data-test="header-casino-link"
-                    data-analytics="header-casino-link"
-                    draggable="false"
-                    href="/casino/home"
-                    style={{ marginTop: '30px' }}
-                ></a>{' '}
-                <div class="image-loader svelte-jby8ge"></div>{' '}
-                <a
-                    class="header-button sports collapsed svelte-jby8ge"
-                    data-sveltekit-preload-data="hover"
-                    data-test="header-sports-link"
-                    data-analytics="header-sports-link"
-                    draggable="false"
-                    href="/sports/home"
-                    style={{ marginTop: '10px' }}
-                ></a>{' '}
-                <div class="image-loader svelte-jby8ge"></div>
+                        <svg
+                            fill="currentColor"
+                            viewBox="0 0 64 64"
+                            class="svg-icon"
+                            width="66"
+                            height="66"
+                        >
+                            {' '}
+                            <title></title>{' '}
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M0 0h64v13H0V0Zm0 25.5h64v13H0v-13ZM64 51H0v13h64V51Z"
+                            ></path>
+                        </svg>
+                    </button>{' '}
+                </div>
+                <div
+                    class={`flex ${
+                        isOpen
+                            ? 'flex-row grow'
+                            : 'flex-col link-wrap svelte-1hoeywl collapsed'
+                    }`}
+                    style={{ marginTop: `${isOpen ? '' : '-15px'}` }}
+                >
+                    <a
+                        class={`${
+                            isOpen ? '!w-1/2' : ''
+                        } header-button collapsed svelte-jby8ge casino`}
+                        data-sveltekit-preload-data="hover"
+                        data-test="header-casino-link"
+                        data-analytics="header-casino-link"
+                        draggable="false"
+                        href="/casino/home"
+                        style={{ marginTop: `${isOpen ? '' : '30px'}` }}
+                    >
+                        <div class="image-loader svelte-jby8ge flex h-full items-center">
+                            {isOpen && 'CASINO'}
+                        </div>
+                    </a>
+
+                    <a
+                        class="header-button sports collapsed svelte-jby8ge"
+                        data-sveltekit-preload-data="hover"
+                        data-test="header-sports-link"
+                        data-analytics="header-sports-link"
+                        draggable="false"
+                        href="/sports/home"
+                        style={{ marginTop: `${isOpen ? '' : '10px'}` }}
+                    >
+                        <div class="image-loader svelte-jby8ge">
+                            {isOpen && 'SPORTS'}
+                        </div>
+                    </a>
+                </div>
             </div>
 
             <div
