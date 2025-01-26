@@ -4,10 +4,12 @@ import Header from './Header'
 import Banner from './Banner'
 import ThirdComponent from './ThirdComponent'
 import FourthComponent from './FourthComponent'
-import FifthComponent from './fifth'
+import FifthComponent from './FifthComponent'
 import SixthComponent from './SixthComponent'
 import FirstComponent from './FirstComponent'
 import SecondComponent from './SecondComponent'
+import SeventhComponent from './SeventhComponent'
+import EighthComponent from './EighthComponent'
 const MainContent = ({ componentData }) => {
     console.log(componentData)
     return (
@@ -186,6 +188,22 @@ const MainContent = ({ componentData }) => {
                     componentData &&
                     componentData.find(
                         (service) => service.title === 'sixth component'
+                    )
+                }
+            />
+            <SeventhComponent
+                data={
+                    componentData &&
+                    componentData.find(
+                        (service) => service.title === 'seventh component'
+                    )
+                }
+            />
+            <EighthComponent
+                data={
+                    componentData &&
+                    componentData.find(
+                        (service) => service.title === 'eighth component'
                     )
                 }
             />
