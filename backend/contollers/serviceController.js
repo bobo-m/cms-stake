@@ -162,12 +162,17 @@ exports.getSingleRecord = catchAsyncErrors(async (req, res, next) => {
 exports.deleteImage = catchAsyncErrors(async (req, res, next) => {
     const { id } = req.params;
     const { image } = req.query;
+    const blog = await QueryModel.findById(table_name, id, next);
 
     if (!image) {
-        return next(new ErrorHandler("No image specified for deletion", 400));
+        const updateData = {
+            images: JSON.stringify(blog.images.filter((imageFile) => imageFile !== image))
+        }
+
+        const newService = await QueryModel.findByIdAndUpdateData(table_name, id, updateData, next);
+        res.redirect(`/${process.env.ADMIN_PREFIX}/${module_slug}/edit/${req.params.id}`);
     }
 
-    const blog = await QueryModel.findById(table_name, id, next);
 
     if (!blog) {
         return next(new ErrorHandler("Service not found", 404));

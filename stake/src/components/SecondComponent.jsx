@@ -4,19 +4,16 @@ import newReleasesIcon from '.././assets/new-releases-icon.BWnV6JM9.svg' // Adju
 const SecondComponent = ({ data }) => {
     console.log(data)
     return (
-        <section
-            className="bg-grey-800 px-4 md:px-8 md:pt-4 pt-8"
-            style={{ maxHeight: '400px' }}
-        >
+        <section className="bg-grey-800 px-4 md:px-8 md:pt-4 pt-8 relative">
             {/* Wrapper for Content */}
-            <div className="mt-5  overflow-hidden md:flex flex-col  px-4 md:px-8 ">
+            <div className="mt-5 banner3 overflow-hidden md:flex flex-col md:flex-row max-md:p-5 max-lg:px-10 max-lg:py-5 lg:pl-24 bg-cover">
                 {/* Left Section: Text and Categories */}
-                <div className=" banner3 min-h-[390px] w-full inset-0 overflow-hidden  m-auto mr-1  max-w-[1400px]">
+                <div className=" min-h-[390px] w-full md:w-2/5 lg:w-3/5 inset-0 overflow-hidden max-w-[1400px]">
                     {/* Text Section */}
-                    <div className=" rounded-lg  justify-between ">
+                    <div className="rounded-lg justify-between">
                         {/* Text Section */}
                         <div>
-                            <h2 className="font-bold text-left text-4xl text-white leading-tight mt-10 ml-20">
+                            <h2 className="font-bold text-left text-[28px] lg:text-4xl text-white leading-tight lg:mt-12">
                                 {data &&
                                     data.headings[0]
                                         .split('\r\n')
@@ -29,67 +26,101 @@ const SecondComponent = ({ data }) => {
                             </h2>
                         </div>
 
+                        <div className="md:hidden h-60 overflow-hidden">
+                            {data && (
+                                <img
+                                    className="self-end"
+                                    src={data.images[0]}
+                                    alt="casino hero banner"
+                                    loading="lazy"
+                                    decoding="async"
+                                    style={{
+                                        objectFit: 'cover',
+                                        maxWidth: '382px',
+                                        maxHeight: '400px',
+                                        aspectRatio: '0.955 / 1',
+                                        width: '100%',
+                                    }}
+                                />
+                            )}
+                        </div>
+
                         {/* Categories Section */}
-                        <div class="w-1/2 gap-x-4 gap-y-4 isolate grid md:grid-cols-[repeat(auto-fill,minmax(160px,1fr))] grid-cols-2 md:my-6 mb-2 md:mb-6 md:py-5 p-4 rounded backdrop-blur-md bg-black/15 absolute ml-10">
+                        <div className="w-full gap-x-4 gap-y-4 grid grid-cols-2 md:grid-cols-1 lg:grid-cols-4 md:my-6 mb-2 md:mb-6 md:py-5 p-4 rounded backdrop-blur-md bg-black/15">
                             {/* New Releases */}
-                            <div className="grid grid-cols-[40px_auto] gap-2 rounded items-center">
+                            <div className="flex gap-4 rounded items-center">
                                 <img
                                     src={newReleasesIcon} // Use the imported image
                                     alt="New Releases"
                                     className="w-10 h-10"
                                 />
+                                <span className="text-xl">Sports</span>
                             </div>
                             {/* Slots */}
-                            <div className="grid grid-cols-[40px_auto] gap-2 rounded items-center">
+                            <div className="flex gap-4 rounded items-center">
                                 <img
                                     src={newReleasesIcon} // Use the imported image
                                     alt="New Releases"
                                     className="w-10 h-10"
                                 />
+                                <span className="text-xl">ESports</span>
                             </div>
                             {/* Live Casino */}
-                            <div className="grid grid-cols-[40px_auto] gap-2 rounded items-center">
+                            <div className="flex gap-4 rounded items-center">
                                 <img
                                     src={newReleasesIcon} // Use the imported image
                                     alt="New Releases"
                                     className="w-10 h-10"
                                 />
+                                <span className="text-xl">
+                                    Horse <br /> Racing
+                                </span>
                             </div>
                             {/* Table Games */}
-                            <div className="grid grid-cols-[40px_auto] gap-2 rounded items-center">
+                            <div className="flex gap-4 rounded items-center">
                                 <img
                                     src={newReleasesIcon} // Use the imported image
                                     alt="New Releases"
                                     className="w-10 h-10"
                                 />
+                                <span className="text-xl">
+                                    Live <br /> Streams
+                                </span>
                             </div>
                         </div>
+                        <button
+                            type="button"
+                            class="inline-flex relative items-center gap-2 justify-center 
+                    rounded-lg lg:rounded-sm font-semibold whitespace-nowrap ring-offset-background 
+                    transition disabled:pointer-events-none disabled:opacity-50 
+                    focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
+                    active:scale-[0.98] bg-[rgba(0,231,1)] text-black
+                    betterhover:hover:bg-blue-600 betterhover:hover:text-white 
+                    focus-visible:outline-white text-sm leading-none shadow-md 
+                    py-[0.9375rem] px-[1.25rem] mt-8 md:mt-4 w-full md:w-auto"
+                        >
+                            Explore Sportsbook
+                        </button>
                     </div>
                 </div>
                 {/* Right Section: Image */}
-                <div
-                    className="absolute right-10"
-                    style={{ transform: 'translateY(-10px)' }}
-                >
-                    <img
-                        className="self-end hidden md:block"
-                        src="https://mediumrare.imgix.net/unauth-sportsbook-hero-banner-en.png?w=382&h=400&fit=min&auto=format"
-                        alt="casino hero banner"
-                        loading="lazy"
-                        decoding="async"
-                        srcSet="https://mediumrare.imgix.net/unauth-sportsbook-hero-banner-en.png?w=382&h=400&fit=min&auto=format 382w,
-        https://mediumrare.imgix.net/unauth-casino-hero-banner-en.png?w=640&h=670&fit=min&auto=format 640w,
-        https://mediumrare.imgix.net/unauth-casino-hero-banner-en.png?w=750&h=785&fit=min&auto=format 750w,
-        https://mediumrare.imgix.net/unauth-casino-hero-banner-en.png?w=764&h=800&fit=min&auto=format 764w"
-                        sizes="(min-width: 382px) 382px, 100vw"
-                        style={{
-                            objectFit: 'cover',
-                            maxWidth: '382px',
-                            maxHeight: '400px',
-                            aspectRatio: '0.955 / 1',
-                            width: '100%',
-                        }}
-                    />
+                <div className="hidden md:flex items-end lg:block lg:absolute lg:right-32 md:translate-y-5 lg:-translate-y-[10px]">
+                    {data && (
+                        <img
+                            className="self-end"
+                            src={data.images[0]}
+                            alt="casino hero banner"
+                            loading="lazy"
+                            decoding="async"
+                            style={{
+                                objectFit: 'cover',
+                                maxWidth: '382px',
+                                maxHeight: '400px',
+                                aspectRatio: '0.955 / 1',
+                                width: '100%',
+                            }}
+                        />
+                    )}
                 </div>
             </div>
         </section>

@@ -4,7 +4,7 @@ import newReleasesIcon from '.././assets/new-releases-icon.BWnV6JM9.svg' // Adju
 
 const RtpItem = ({ icon, title, description, progress, isActive }) => (
     <div
-        className={`rtp-item base-transition flex flex-row p-4 pb-5 rounded relative overflow-hidden ${
+        className={`rtp-item base-transition flex flex-row p-4 pb-5 rounded relative overflow-hidden max-lg:bg-grey-500 ${
             isActive ? 'bg-grey-700' : 'bg-grey-800'
         }`}
     >
@@ -17,16 +17,14 @@ const RtpItem = ({ icon, title, description, progress, isActive }) => (
             <p className="weight-bold line-height-default align-left size-lg text-size-lg variant-highlighted with-icon-space">
                 {title}
             </p>
-            {isActive && (
-                <div className="play-text">
-                    <span className="weight-normal line-height-default align-left size-base text-size-base variant-highlighted with-icon-space">
-                        {description}
-                    </span>
-                </div>
-            )}
+            <div className={`play-text ${isActive ? '' : 'lg:hidden block'}`}>
+                <span className="weight-normal line-height-default align-left size-base text-size-base variant-highlighted with-icon-space">
+                    {description}
+                </span>
+            </div>
         </div>
         {isActive && (
-            <div className="play-bar p-1 bg-grey-500 w-full absolute bottom-0 left-0">
+            <div className="hidden lg:block play-bar p-1 bg-grey-500 w-full absolute bottom-0 left-0">
                 <div
                     className="play-bar-progress ease-linear bg-blue-500 h-full absolute top-0 left-0 transition-all duration-[100ms]"
                     style={{ width: `${progress}%` }}
@@ -137,9 +135,9 @@ const ThirdComponent = () => {
     }, [rtpItems.length])
 
     return (
-        <section className="bg-grey-800 px-4 md:px-8 py-8 md:py-12">
+        <section className="px-5 md:px-8 py-8 md:py-12">
             <div className="m-auto flex flex-col md:gap-6 gap-5 max-w-[1200px]">
-                <h2 className="weight-bold line-height-normal text-center text-4xl text-white px-8 mt-10 mb-10">
+                <h2 className="font-bold line-height-normal lg:text-center text-[28px] lg:text-4xl text-white lg:px-8 mt-10 lg:my-10">
                     Enjoy the best odds with up to 99.5% return-to-player games
                 </h2>
                 <div className="flex flex-row md:gap-[64px]">
@@ -156,7 +154,7 @@ const ThirdComponent = () => {
                         ))}
                     </div>
                     {/* Video Section */}
-                    <div className="relative max-w-[568px] w-full h-full">
+                    <div className="hidden lg:block relative max-w-[568px] w-full h-full">
                         {videos.map((video, index) =>
                             currentVideoIndex === index ? (
                                 <VideoPlayer

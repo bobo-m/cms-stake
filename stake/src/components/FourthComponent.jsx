@@ -161,11 +161,11 @@ const FourthComponent = ({ data }) => {
     }, [images.length])
 
     return (
-        <div className="bg-gray-800 h-110 flex items-center justify-center px-8">
+        <div className="bg-grey-600 h-110 flex items-center justify-center pt-10 md:py-20 px-5 md:px-8">
             {/* Container */}
             <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10 items-center">
                 {/* Left Section - Image Slider */}
-                <div className="cards aspect-[343/300] sm:aspect-auto sm:h-96 md:h-auto md:w-6/12 relative overflow-hidden">
+                <div className="cards aspect-[343/300] sm:aspect-auto sm:h-96 md:h-auto md:w-6/12 relative overflow-hidden max-md:order-2">
                     {images.map((image, index) => (
                         <div
                             key={index}
@@ -201,7 +201,7 @@ const FourthComponent = ({ data }) => {
 
                 {/* Right Section - Text */}
                 <div className="text-white">
-                    <h1 className="text-4xl font-bold mb-6">
+                    <h1 className="text-[28px] leading-tight lg:text-4xl font-bold mb-6">
                         {data && data.headings[0]}
                     </h1>
                     <p className="text-lg mb-8">{data && data.paragraphs[0]}</p>

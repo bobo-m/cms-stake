@@ -1,23 +1,23 @@
 // Import necessary modules
 import React from 'react'
-import './sixth.css' // CSS for styling
+import './SixthComponent.css' // CSS for styling
 import bgImage from '../assets/sponsorship-bg-red.CvuHUVge.svg'
 import bgImage2 from '../assets/sponsorship-bg-blue.DxmQOpu9.svg'
 
 const SixthComponent = ({ data }) => {
     console.log(data)
     return (
-        <div>
-            <h1 className="text-4xl font-bold mb-4 leading-normal px-40 text-center">
+        <div className="bg-grey-600 py-10 max-md:px-5 max-lg:px-10">
+            <h2 className="text-[28px] lg:text-4xl font-bold mb-4 leading-normal lg:px-40 lg:text-center">
                 {data && data.headings[0]}
-            </h1>
-            <p className="text-2xl text-gray-400 mb-6 px-40 text-center">
+            </h2>
+            <p className="tex-sm lg:text-2xl text-gray-400 mb-6 lg:px-40 lg:text-center">
                 {data && data.paragraphs[0]}
             </p>
-            <div className="grid grid-rows-[275px_275px] sm:grid-rows-none sm:grid-cols-[calc(50%-9px)_calc(50%-9px)] lg:h-[664px] md:gap-[18px] gap-3 pt-6 w-full max-w-[1200px] transition-all duration-150 delay-100 mx-auto place-items-center">
+            <div className="grid grid-rows-[275px_275px] sm:grid-rows-none sm:grid-cols-[calc(50%-9px)_calc(50%-9px)] md:h-[664px] md:gap-[18px] gap-3 pt-6 w-full max-w-[1200px] transition-all duration-150 delay-100 mx-auto place-items-center">
                 {/* Left Item */}
                 <div
-                    className="first item group flex items-end relative overflow-hidden bg-center bg-cover rounded-2xl h-full"
+                    className="first item group flex items-end relative overflow-hidden bg-center bg-cover w-full rounded-2xl h-full"
                     style={{
                         backgroundImage: `url(${bgImage})`,
                     }}
@@ -60,7 +60,7 @@ const SixthComponent = ({ data }) => {
 
                 {/* Right Item */}
                 <div
-                    className="item group flex items-end relative overflow-hidden bg-center bg-cover rounded-2xl h-full"
+                    className="item group flex items-end relative overflow-hidden bg-center bg-cover rounded-2xl w-full h-full"
                     style={{
                         backgroundImage: `url(${bgImage2})`,
                     }} // Replace with correct path

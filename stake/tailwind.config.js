@@ -8,6 +8,11 @@ module.exports = {
     extend: {
       colors: {
         "grey-400": "#B0B0B0", // Custom gray color
+        "grey-500": "rgba(33, 55, 67)",
+        "grey-600": "#1a2c38"
+      },
+      fontFamily: {
+        "monteserrat": "Monterserrat Variable, sans-serif"
       },
       spacing: {
         "18px": "18px", // Custom spacing for gap
