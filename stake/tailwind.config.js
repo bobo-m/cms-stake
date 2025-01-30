@@ -8,9 +8,11 @@ module.exports = {
     extend: {
       colors: {
         "grey-200": "rgba(177,186,211)",
+        "grey-300": "rgb(47,69,83)",
         "grey-400": "#B0B0B0", // Custom gray color
         "grey-500": "rgba(33, 55, 67)",
         "grey-600": "#1a2c38",
+        "grey-700": "#0f212e",
         "grey-800": "rgba(7,29,42)"
       },
       fontFamily: {

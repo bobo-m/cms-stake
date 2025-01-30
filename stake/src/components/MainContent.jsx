@@ -10,6 +10,8 @@ import FirstComponent from './FirstComponent'
 import SecondComponent from './SecondComponent'
 import SeventhComponent from './SeventhComponent'
 import EighthComponent from './EighthComponent'
+import NinthComponent from './NinthComponent'
+
 const MainContent = ({ componentData }) => {
     console.log(componentData)
     return (
@@ -199,6 +201,9 @@ const MainContent = ({ componentData }) => {
                     )
                 }
             />
+
+            <NinthComponent />
+
             <EighthComponent
                 data={
                     componentData &&
