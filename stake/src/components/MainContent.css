@@ -467,14 +467,6 @@ body {
 
     box-sizing: border-box; /* Ensure padding is included within the width */
 }
-@media (min-width: 768px) {
-    .md\:items-start {
-        align-items: flex-start;
-    }
-}
-.justify-end {
-    justify-content: flex-end;
-}
 
 html,
 body,

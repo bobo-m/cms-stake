@@ -7,9 +7,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        "grey-200": "rgba(177,186,211)",
         "grey-400": "#B0B0B0", // Custom gray color
         "grey-500": "rgba(33, 55, 67)",
-        "grey-600": "#1a2c38"
+        "grey-600": "#1a2c38",
+        "grey-800": "rgba(7,29,42)"
       },
       fontFamily: {
         "monteserrat": "Monterserrat Variable, sans-serif"

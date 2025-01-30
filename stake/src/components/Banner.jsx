@@ -11,7 +11,7 @@ const Banner = ({ data }) => {
             <div class="overflow-x-auto scrollbar-hide">
                 <div class="flex flex-col-reverse md:flex-row max-w-[1200px] mx-auto gap-8 items-center md:items-start lg:items-center">
                     <div class="text-center md:text-left lg:max-w-[478px]">
-                        <h2 class="text-3xl md:text-4xl lg::text-5xl font-bold lg:leading-tight md:mb-6">
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold lg:leading-tight md:mb-6">
                             {data && data.headings[0]}
                         </h2>
                         <button

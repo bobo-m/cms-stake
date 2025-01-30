@@ -30,11 +30,11 @@ const FifthComponent = ({ data }) => {
     return (
         <div className="bg-gray-900 text-white py-12 px-6">
             {/* Main Heading Section */}
-            <div className="max-w-4xl mx-auto text-center mb-12">
-                <h1 className="text-4xl font-bold mb-4">
+            <div className="max-w-4xl mx-auto lg:text-center mb-12">
+                <h1 className="text-[28px] lg:text-4xl font-bold mb-4">
                     {data && data.headings[0]}
                 </h1>
-                <p className="text-lg text-gray-400 mb-6">
+                <p className="text-sm lg:text-2xl text-gray-400 mb-6">
                     {data && data.paragraphs[0]}
                 </p>
                 <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded">

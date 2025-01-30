@@ -13,7 +13,7 @@ import EighthComponent from './EighthComponent'
 const MainContent = ({ componentData }) => {
     console.log(componentData)
     return (
-        <main class="min-h-full flex flex-col font-monteserrat">
+        <main class="flex flex-col font-monteserrat">
             <Header />
             <Banner
                 data={
@@ -24,7 +24,7 @@ const MainContent = ({ componentData }) => {
                         : null
                 }
             />
-            <section class="w-full py-7 md:py-9 lg:px-8 m-auto flex flex-col content-center lg:mt-24 bg-[#1a2c38]">
+            <section class="w-full py-7 md:py-9 lg:px-8 m-auto flex flex-col content-center lg:mt-24 lg:mb-10 bg-[#1a2c38]">
                 <div class="slider  overflow-hidden w-full max-w-[1200px] relative m-auto">
                     <ul class="slider-track flex items-center animate-slide">
                         <li>

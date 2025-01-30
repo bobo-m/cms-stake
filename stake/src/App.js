@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "./components/Sidebar";
 import MainContent from "./components/MainContent";
 import MobileNavbar from "./components/MobileNavbar";
+import Footer from "./components/Footer";
 // Supports weights 100-900
 import '@fontsource-variable/montserrat';
 
@@ -34,8 +35,9 @@ const App = () => {
         {/* Sidebar */}
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         {/* Main Content */}
-        <div className="flex-1 flex flex-col overflow-y-scroll w-screen md:w-full relative">
+        <div className="flex flex-col overflow-y-scroll w-screen md:w-full relative">
           <MainContent componentData={data.services} />
+          <Footer />
         </div>
         <MobileNavbar toggleSidebar={toggleSidebar} />
       </div>
