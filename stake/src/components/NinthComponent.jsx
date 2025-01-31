@@ -48,16 +48,16 @@ const SportsTable = ({ data }) => {
                     <th className="p-4 text-left max-md:hidden">User</th>
                     <th className="p-4 max-md:hidden">Time</th>
                     <th className="p-4 max-md:hidden">Odds</th>
-                    <th className="p-4 max-md:hidden">Bet Amount</th>
+                    <th className="p-4">Bet Amount</th>
                 </tr>
             </thead>
             <tbody className="bg-inherit">
                 {data.map((entry, index) => (
                     <tr
                         key={index}
-                        className="odd:bg-grey-500 even:bg-grey-300"
+                        className="odd:bg-grey-500 even:bg-grey-300 w-full"
                     >
-                        <td className="p-4 rounded-l-md text-left">
+                        <td className="p-4 rounded-l-md text-left truncate overflow-hidden whitespace-nowrap max-w-[150px]">
                             {entry.event}
                         </td>
                         <td className="p-4 text-left max-md:hidden">
@@ -71,9 +71,7 @@ const SportsTable = ({ data }) => {
                             })}
                         </td>
                         <td className="p-4 max-md:hidden">{entry.odds}</td>
-                        <td className="p-4 max-md:hidden">
-                            {entry.bet_amount}
-                        </td>
+                        <td className="p-4">{entry.bet_amount}</td>
                     </tr>
                 ))}
             </tbody>

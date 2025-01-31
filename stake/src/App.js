@@ -35,7 +35,7 @@ const App = () => {
         {/* Sidebar */}
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         {/* Main Content */}
-        <div className="flex flex-col overflow-y-scroll w-screen md:w-full relative">
+        <div className="flex flex-col overflow-y-scroll w-screen md:w-full relative scrollY">
           <MainContent componentData={data.services} />
           <Footer />
         </div>

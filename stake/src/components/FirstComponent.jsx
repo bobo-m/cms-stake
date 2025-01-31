@@ -1,5 +1,8 @@
 import React from 'react'
-import newReleasesIcon from '.././assets/new-releases-icon.BWnV6JM9.svg' // Adjust the path based on the file's location
+import newReleasesIcon from '../assets/icons/new-releases-icon.svg'
+import slotsIcon from '../assets/icons/slots-icon.svg'
+import liveCasinoIcon from '../assets/icons/live-casino-icon.svg'
+import tableGamesIcon from '../assets/icons/table-games-icon.svg'
 
 const FirstComponent = ({ data }) => {
     return (
@@ -65,7 +68,7 @@ const FirstComponent = ({ data }) => {
                             {/* Slots */}
                             <div className="flex gap-4 rounded items-center">
                                 <img
-                                    src={newReleasesIcon} // Use the imported image
+                                    src={slotsIcon} // Use the imported image
                                     alt="New Releases"
                                     className="w-10 h-10"
                                 />
@@ -74,7 +77,7 @@ const FirstComponent = ({ data }) => {
                             {/* Live Casino */}
                             <div className="flex gap-4 rounded items-center">
                                 <img
-                                    src={newReleasesIcon} // Use the imported image
+                                    src={liveCasinoIcon} // Use the imported image
                                     alt="New Releases"
                                     className="w-10 h-10"
                                 />
@@ -85,7 +88,7 @@ const FirstComponent = ({ data }) => {
                             {/* Table Games */}
                             <div className="flex gap-4 rounded items-center">
                                 <img
-                                    src={newReleasesIcon} // Use the imported image
+                                    src={tableGamesIcon} // Use the imported image
                                     alt="New Releases"
                                     className="w-10 h-10"
                                 />

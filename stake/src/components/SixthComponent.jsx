@@ -14,7 +14,7 @@ const SixthComponent = ({ data }) => {
             <p className="tex-sm lg:text-2xl text-gray-400 mb-6 lg:px-40 lg:text-center">
                 {data && data.paragraphs[0]}
             </p>
-            <div className="grid grid-rows-[275px_275px] sm:grid-rows-none sm:grid-cols-[calc(50%-9px)_calc(50%-9px)] md:h-[664px] md:gap-[18px] gap-3 pt-6 w-full max-w-[1200px] transition-all duration-150 delay-100 mx-auto place-items-center">
+            <div className="grid lg:has-[.item:nth-child(1):hover]:grid-cols-[calc(60%-9px)_calc(40%-9px)] lg:has-[.item:nth-child(2):hover]:grid-cols-[calc(40%-9px)_calc(60%-9px)] grid-rows-[275px_275px] sm:grid-rows-none sm:grid-cols-[calc(50%-9px)_calc(50%-9px)] md:h-[664px] md:gap-[18px] gap-3 pt-6 w-full max-w-[1200px] transition-all duration-150 delay-100 mx-auto place-items-center">
                 {/* Left Item */}
                 <div
                     className="first item group flex items-end relative overflow-hidden bg-center bg-cover w-full rounded-2xl h-full"
@@ -39,7 +39,7 @@ const SixthComponent = ({ data }) => {
                         alt="UFC"
                         className="absolute top-[59px] max-w-[100px] lg:max-w-full lg:h-20 left-4 lg:left-1/2 transform lg:-translate-x-1/2"
                     />
-                    <div className="copy flex relative lg:absolute bottom-0 left-0 p-5 pt-16 w-full lg:justify-start lg:opacity-0 lg:translate-y-2 transition-all duration-100 delay-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:duration-300 group-hover:delay-300 bg-gradient-to-t from-[rgba(0,0,0,.65)] to-transparent">
+                    <div className="copy flex relative lg:absolute bottom-0 left-0 p-5 pt-16 w-full items-end lg:justify-start lg:opacity-0 lg:translate-y-2 transition-all duration-100 delay-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:duration-300 group-hover:delay-300 bg-gradient-to-t from-[rgba(0,0,0,.65)] to-transparent">
                         <div className="pr-6 hidden lg:block">
                             <span className="font-bold text-xl">
                                 {data && data.headings[1]}
@@ -51,7 +51,7 @@ const SixthComponent = ({ data }) => {
                         </div>
                         <a
                             href="/sponsorships/ufc"
-                            className="inline-flex items-center gap-2 justify-center rounded-sm font-semibold text-white hover:bg-grey-400 hover:text-white border border-white text-sm px-4 py-2"
+                            className="inline-flex items-center min-w-fit gap-2 h-min justify-center rounded-md font-semibold text-white hover:bg-grey-400 hover:text-white border border-solid border-white text-sm px-4 py-2"
                         >
                             Learn more
                         </a>
@@ -82,7 +82,7 @@ const SixthComponent = ({ data }) => {
                         alt="Everton"
                         className="absolute top-[59px] max-w-[100px] lg:max-w-full lg:h-20 left-4 lg:left-1/2 transform lg:-translate-x-1/2"
                     />
-                    <div className="copy flex relative lg:absolute bottom-0 left-0 p-5 pt-16 w-full lg:justify-start lg:opacity-0 lg:translate-y-2 transition-all duration-100 delay-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:duration-300 group-hover:delay-300 bg-gradient-to-t from-[rgba(0,0,0,.65)] to-transparent">
+                    <div className="copy flex items-end relative lg:absolute bottom-0 left-0 p-5 pt-16 w-full lg:justify-start lg:opacity-0 lg:translate-y-2 transition-all duration-100 delay-0 group-hover:opacity-100 group-hover:translate-y-0 group-hover:duration-300 group-hover:delay-300 bg-gradient-to-t from-[rgba(0,0,0,.65)] to-transparent">
                         <div className="pr-6 hidden lg:block">
                             <span className="font-bold text-xl">
                                 {data && data.headings[2]}
@@ -94,7 +94,7 @@ const SixthComponent = ({ data }) => {
                         </div>
                         <a
                             href="/sponsorships/everton"
-                            className="inline-flex items-center gap-2 justify-center rounded-sm font-semibold text-white hover:bg-grey-400 hover:text-white border border-white text-sm px-4 py-2"
+                            className="inline-flex items-center min-w-fit gap-2 justify-center rounded-md font-semibold text-white hover:bg-grey-400 hover:text-white border border-solid border-white text-sm px-4 py-2"
                         >
                             Learn more
                         </a>

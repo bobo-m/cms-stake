@@ -5,9 +5,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         <div
             className={`${
                 isOpen
-                    ? 'md:w-[240px] h-full pt-5 md:pt-0'
+                    ? 'md:w-[300px] h-full pt-5 md:pt-0'
                     : 'md:w-[54px] h-0 md:h-full'
-            } bg-[#0f212e] md:flex flex-col items-center transition-[width,height] overflow-hidden w-full`}
+            } bg-[#0f212e] md:flex flex-col items-center transition-[width,height] overflow-hidden w-full text-sm`}
         >
             <div className="md:hidden py-2 mx-5 h-10 flex items-center rounded-full border border-solid border-white box-border gap-2 px-5">
                 <div>

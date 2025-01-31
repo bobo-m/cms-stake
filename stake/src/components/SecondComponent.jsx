@@ -1,5 +1,8 @@
 import React from 'react'
-import newReleasesIcon from '.././assets/new-releases-icon.BWnV6JM9.svg' // Adjust the path based on the file's location
+import sportsIcon from '../assets/icons/sports-icon.svg'
+import eSportsIcon from '../assets/icons/esports-icon.svg'
+import horseRacingIcon from '../assets/icons/horse-racing-icon.svg'
+import liveStreamsIcon from '../assets/icons/live-streams-icon.svg'
 
 const SecondComponent = ({ data }) => {
     console.log(data)
@@ -50,7 +53,7 @@ const SecondComponent = ({ data }) => {
                             {/* New Releases */}
                             <div className="flex gap-4 rounded items-center">
                                 <img
-                                    src={newReleasesIcon} // Use the imported image
+                                    src={sportsIcon} // Use the imported image
                                     alt="New Releases"
                                     className="w-10 h-10"
                                 />
@@ -59,7 +62,7 @@ const SecondComponent = ({ data }) => {
                             {/* Slots */}
                             <div className="flex gap-4 rounded items-center">
                                 <img
-                                    src={newReleasesIcon} // Use the imported image
+                                    src={eSportsIcon} // Use the imported image
                                     alt="New Releases"
                                     className="w-10 h-10"
                                 />
@@ -68,7 +71,7 @@ const SecondComponent = ({ data }) => {
                             {/* Live Casino */}
                             <div className="flex gap-4 rounded items-center">
                                 <img
-                                    src={newReleasesIcon} // Use the imported image
+                                    src={horseRacingIcon} // Use the imported image
                                     alt="New Releases"
                                     className="w-10 h-10"
                                 />
@@ -79,7 +82,7 @@ const SecondComponent = ({ data }) => {
                             {/* Table Games */}
                             <div className="flex gap-4 rounded items-center">
                                 <img
-                                    src={newReleasesIcon} // Use the imported image
+                                    src={liveStreamsIcon} // Use the imported image
                                     alt="New Releases"
                                     className="w-10 h-10"
                                 />

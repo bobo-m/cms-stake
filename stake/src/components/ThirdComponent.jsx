@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import '../components/third.css'
-import newReleasesIcon from '.././assets/new-releases-icon.BWnV6JM9.svg' // Adjust the path based on the file's location
+import bonusIcon from '../assets/rtp-icons/bonus-icon.svg'
+import promoIcon from '../assets/rtp-icons/promotion-icon.svg'
+import raffleIcon from '../assets/rtp-icons/raffle-icon.svg'
+import returnIcon from '../assets/rtp-icons/return-icon.svg'
 
 const RtpItem = ({ icon, title, description, progress, isActive }) => (
     <div
@@ -8,19 +11,11 @@ const RtpItem = ({ icon, title, description, progress, isActive }) => (
             isActive ? 'bg-grey-700' : 'bg-grey-800'
         }`}
     >
-        <img
-            src={newReleasesIcon}
-            alt={`${title} icon`}
-            className="max-w-[40px]"
-        />
+        <img src={icon} alt={`${title} icon`} className="max-w-[40px]" />
         <div className="ml-4 flex flex-col justify-center">
-            <p className="weight-bold line-height-default align-left size-lg text-size-lg variant-highlighted with-icon-space">
-                {title}
-            </p>
+            <p className="font-bold text-xl leading-normal">{title}</p>
             <div className={`play-text ${isActive ? '' : 'lg:hidden block'}`}>
-                <span className="weight-normal line-height-default align-left size-base text-size-base variant-highlighted with-icon-space">
-                    {description}
-                </span>
+                <span className="font-medium">{description}</span>
             </div>
         </div>
         {isActive && (
@@ -51,25 +46,25 @@ const VideoPlayer = ({ poster, webmSrc, mp4Src, zIndex, isPlaying }) => (
 const ThirdComponent = () => {
     const rtpItems = [
         {
-            icon: 'https://stake.com/_app/immutable/assets/bonus-icon.BDU3QLVQ.svg',
+            icon: bonusIcon,
             title: 'Bonus boosts',
             description:
                 'Weekly boosts and monthly bonuses mean you’ll get rewarded the more you play top Casino games and bet on your favourite Sports.',
         },
         {
-            icon: 'https://stake.com/_app/immutable/assets/raffle-icon.ec7wmZpx.svg',
+            icon: promoIcon,
             title: 'Raffles & races',
             description:
                 'Get in the draw to win 75K each week. Plus score big on daily races.',
         },
         {
-            icon: 'https://stake.com/_app/immutable/assets/promotion-icon.CrYq-DC8.svg',
+            icon: raffleIcon,
             title: 'Promotions',
             description:
                 'Make the most from our Casino promotions and Sports betting bonuses which are updated weekly.',
         },
         {
-            icon: 'https://stake.com/_app/immutable/assets/return-icon.CgJwlR43.svg',
+            icon: returnIcon,
             title: 'High return-to-player (RTP)',
             description:
                 'With enhanced RTP percentages, you stand a chance to win big every time you play.',
