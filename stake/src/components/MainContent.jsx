@@ -1,6 +1,5 @@
 import React from 'react'
 import '../components/MainContent.css'
-import Header from './Header'
 import Banner from './Banner'
 import ThirdComponent from './ThirdComponent'
 import FourthComponent from './FourthComponent'
@@ -11,12 +10,12 @@ import SecondComponent from './SecondComponent'
 import SeventhComponent from './SeventhComponent'
 import EighthComponent from './EighthComponent'
 import NinthComponent from './NinthComponent'
+import FAQs from './FAQs'
 
 const MainContent = ({ componentData }) => {
     console.log(componentData)
     return (
-        <main class="flex flex-col font-monteserrat">
-            <Header />
+        <main class="flex flex-col font-monteserrat mt-16">
             <Banner
                 data={
                     componentData
@@ -212,6 +211,8 @@ const MainContent = ({ componentData }) => {
                     )
                 }
             />
+
+            <FAQs />
         </main>
     )
 }

@@ -3,7 +3,7 @@ import React from 'react'
 const Header = ({ toggleSidebar }) => {
     return (
         <header
-            className="flex items-center bg-gray-800 p-2.5"
+            className="flex fixed top-0 w-full z-10 items-center bg-gray-800 p-2.5"
             style={{ boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1)' }}
         >
             <div className="logo flex items-center ml-16">

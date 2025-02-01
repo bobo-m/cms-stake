@@ -93,7 +93,7 @@ const SecondComponent = ({ data }) => {
                         </div>
                         <button
                             type="button"
-                            class="inline-flex relative items-center gap-2 justify-center 
+                            className="inline-flex relative items-center gap-2 justify-center 
                     rounded-lg lg:rounded-sm font-semibold whitespace-nowrap ring-offset-background 
                     transition disabled:pointer-events-none disabled:opacity-50 
                     focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 

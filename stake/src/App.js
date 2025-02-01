@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import MainContent from "./components/MainContent";
 import MobileNavbar from "./components/MobileNavbar";
@@ -36,6 +37,8 @@ const App = () => {
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         {/* Main Content */}
         <div className="flex flex-col overflow-y-scroll w-screen md:w-full relative scrollY">
+          <Header />
+
           <MainContent componentData={data.services} />
           <Footer />
         </div>
