@@ -29,5 +29,8 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "madge": "^8.0.0"
+  }
 }

@@ -19,8 +19,8 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                         {' '}
                         <title></title>{' '}
                         <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
+                            fillRule="evenodd"
+                            clipRule="evenodd"
                             d="M10.266 3.893a23.1 23.1 0 1 1 25.668 38.414A23.1 23.1 0 0 1 10.266 3.893Zm5.112 30.764a13.9 13.9 0 1 0 15.444-23.114 13.9 13.9 0 0 0-15.444 23.114ZM38.55 46.33a28.002 28.002 0 0 0 7.78-7.78L64 56.22 56.22 64 38.55 46.33Z"
                         ></path>
                     </svg>
@@ -64,15 +64,15 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                         <svg
                             fill="currentColor"
                             viewBox="0 0 64 64"
-                            class="svg-icon"
+                            className="svg-icon"
                             width="66"
                             height="66"
                         >
                             {' '}
                             <title></title>{' '}
                             <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
+                                fillRule="evenodd"
+                                clipRule="evenodd"
                                 d="M0 0h64v13H0V0Zm0 25.5h64v13H0v-13ZM64 51H0v13h64V51Z"
                             ></path>
                         </svg>

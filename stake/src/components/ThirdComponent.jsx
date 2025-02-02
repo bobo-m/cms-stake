@@ -1,47 +1,96 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import '../components/third.css'
 import bonusIcon from '../assets/rtp-icons/bonus-icon.svg'
 import promoIcon from '../assets/rtp-icons/promotion-icon.svg'
 import raffleIcon from '../assets/rtp-icons/raffle-icon.svg'
 import returnIcon from '../assets/rtp-icons/return-icon.svg'
 
-const RtpItem = ({ icon, title, description, progress, isActive }) => (
-    <div
-        className={`rtp-item base-transition flex flex-row p-4 pb-5 rounded relative overflow-hidden max-lg:bg-grey-500 ${
-            isActive ? 'bg-grey-700' : 'bg-grey-800'
-        }`}
-    >
-        <img src={icon} alt={`${title} icon`} className="max-w-[40px]" />
-        <div className="ml-4 flex flex-col justify-center">
-            <p className="font-bold text-xl leading-normal">{title}</p>
-            <div className={`play-text ${isActive ? '' : 'lg:hidden block'}`}>
-                <span className="font-medium">{description}</span>
-            </div>
-        </div>
-        {isActive && (
-            <div className="hidden lg:block play-bar p-1 bg-grey-500 w-full absolute bottom-0 left-0">
+const RtpItem = ({ icon, title, description, progress, isActive }) => {
+    return (
+        <div
+            className={`rtp-item base-transition flex flex-row p-4 pb-5 rounded relative overflow-hidden max-lg:bg-grey-500 ${
+                isActive ? 'bg-grey-700' : 'bg-grey-800'
+            }`}
+        >
+            <img src={icon} alt={`${title} icon`} className="max-w-[40px]" />
+            <div className="ml-4 flex flex-col justify-center">
+                <p className="font-bold text-xl leading-normal">{title}</p>
                 <div
-                    className="play-bar-progress ease-linear bg-blue-500 h-full absolute top-0 left-0 transition-all duration-[100ms]"
-                    style={{ width: `${progress}%` }}
-                ></div>
+                    className={`play-text ${isActive ? '' : 'lg:hidden block'}`}
+                >
+                    <span className="font-medium">{description}</span>
+                </div>
             </div>
-        )}
-    </div>
-)
-const VideoPlayer = ({ poster, webmSrc, mp4Src, zIndex, isPlaying }) => (
-    <video
-        autoPlay={isPlaying}
-        muted
-        loop
-        poster={poster}
-        playsInline
-        className="top-0 left-0 w-full h-full aspect-square relative"
-        style={{ zIndex }}
-    >
-        <source src={webmSrc} type="video/webm" />
-        <source src={mp4Src} type="video/mp4" />
-    </video>
-)
+            {isActive && (
+                <div className="hidden lg:block p-1 bg-grey-500 w-full absolute bottom-0 left-0">
+                    <div
+                        className="ease-linear bg-gradient-to-r from-[#213743] to-blue-500 h-full absolute top-0 left-0 transition-all"
+                        style={{ width: `${progress}%` }}
+                    ></div>
+                </div>
+            )}
+        </div>
+    )
+}
+
+const VideoPlayer = ({
+    poster,
+    webmSrc,
+    mp4Src,
+    zIndex,
+    isPlaying,
+    setProgress,
+    onVideoEnd,
+}) => {
+    const videoRef = useRef(null)
+
+    useEffect(() => {
+        const videoElement = videoRef.current
+        if (!videoElement) return
+
+        const updateProgress = () => {
+            if (videoElement.duration) {
+                const percentage =
+                    (videoElement.currentTime / videoElement.duration) * 100
+                setProgress(Math.round(percentage)) // Round to whole number
+            }
+        }
+
+        const interval = setInterval(updateProgress, 100) // ✅ Check progress every 100ms
+
+        return () => clearInterval(interval) // ✅ Cleanup on unmount
+    }, [webmSrc, mp4Src, setProgress]) // Re-run if sources change
+
+    useEffect(() => {
+        const videoElement = videoRef.current
+        if (!videoElement) return
+
+        const handleEnd = () => {
+            onVideoEnd() // Call the parent function to change the video
+        }
+
+        videoElement.addEventListener('ended', handleEnd)
+
+        return () => videoElement.removeEventListener('ended', handleEnd) // Cleanup
+    }, [onVideoEnd])
+
+    return (
+        <div>
+            <video
+                ref={videoRef}
+                autoPlay={isPlaying}
+                muted
+                poster={poster}
+                playsInline
+                className="top-0 left-0 w-full h-full aspect-square relative"
+                style={{ zIndex }}
+            >
+                <source src={webmSrc} type="video/webm" />
+                <source src={mp4Src} type="video/mp4" />
+            </video>
+        </div>
+    )
+}
 
 const ThirdComponent = () => {
     const rtpItems = [
@@ -102,32 +151,13 @@ const ThirdComponent = () => {
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
     const [currentIndex, setCurrentIndex] = useState(0) // Track the active item
     const [progress, setProgress] = useState(0) // Track progress percentage
-    const videoDuration = 10000 // Duration of each video in milliseconds
 
-    useEffect(() => {
-        // Video switching logic
-        const videoInterval = setInterval(() => {
-            setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length)
-        }, videoDuration)
-
-        return () => clearInterval(videoInterval)
-    }, [videos.length])
-    useEffect(() => {
-        const progressInterval = setInterval(() => {
-            setProgress((prev) => {
-                if (prev >= 100) {
-                    // Reset progress and move to the next video
-                    setCurrentIndex(
-                        (prevIndex) => (prevIndex + 1) % rtpItems.length
-                    )
-                    return 0
-                }
-                return prev + 3 // Increase by 2% per tick for faster progress
-            })
-        }, videoDuration / 100) // Adjust interval to match the desired speed
-
-        return () => clearInterval(progressInterval)
-    }, [rtpItems.length])
+    const handleVideoEnd = () => {
+        // Move to the next video when the current one ends
+        setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length)
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % rtpItems.length)
+        setProgress(0) // Reset progress for the new video
+    }
 
     return (
         <section className="px-5 md:px-8 py-8 md:py-12">
@@ -159,6 +189,8 @@ const ThirdComponent = () => {
                                     mp4Src={video.mp4Src}
                                     zIndex={video.zIndex}
                                     isPlaying={currentVideoIndex === index}
+                                    setProgress={setProgress}
+                                    onVideoEnd={handleVideoEnd}
                                 />
                             ) : null
                         )}

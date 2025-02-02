@@ -2,19 +2,17 @@
 const ErrorHandler = require("../utils/errorHandler");
 const catchAsyncErrors = require("./catchAsyncErrors");
 const jwt = require("jsonwebtoken");
-const User = require('../models/userModel');
 const db = require('../config/mysql_database');
-const { render } = require("../app");
 
-exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next)=>{
+exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
     const token = req.cookies.token;
-    
+
     if (!token) {
-        req.flash('msg_response',{ status: 400, message: 'Please login to access this resource.' } );
+        req.flash('msg_response', { status: 400, message: 'Please login to access this resource.' });
         return res.redirect(`/${process.env.ADMIN_PREFIX}/login`);
     }
 
-   try {
+    try {
         const decodeData = jwt.verify(token, process.env.JWT_SECRET);
         const [rows] = await db.query('SELECT * FROM users WHERE id = ?', [decodeData.id]);
 
@@ -32,11 +30,11 @@ exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next)=>{
 })
 
 
-exports.isApiAuthenticatedUser = catchAsyncErrors(async (req, res, next)=>{
+exports.isApiAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
     const token = req.cookies.token;
-    
-    if(!token){
-        return next(new ErrorHandler("Please login to access this resource.",401));
+
+    if (!token) {
+        return next(new ErrorHandler("Please login to access this resource.", 401));
     }
 
     const decodeData = jwt.verify(token, process.env.JWT_SECRET);
@@ -44,13 +42,13 @@ exports.isApiAuthenticatedUser = catchAsyncErrors(async (req, res, next)=>{
     const loginUser = await db.query('SELECT * FROM users WHERE id = ?', [decodeData.id]);
     req.user = loginUser[0][0];
     //req.user =  await User.findById(decodeData.id);
-    
-   next();
+
+    next();
 })
 
 
 exports.authorizeRoles = (...roles) => {
-   
+
     return (req, res, next) => {
         if (!req.user) {
             return next(new ErrorHandler('Unauthorized: User not authenticated', 401));

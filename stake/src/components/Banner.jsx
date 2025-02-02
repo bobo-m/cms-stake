@@ -3,20 +3,20 @@ import bannerBg from '../assets/stake.BFmdy97X.svg'
 const Banner = ({ data }) => {
     return (
         <section
-            class="bg-contain bg-no-repeat bg-center w-full bg-gray-900 py-12 px-4 md:px-8 "
+            className="bg-contain bg-no-repeat bg-top w-full bg-grey-800 py-12 px-4 md:px-8 "
             style={{ backgroundImage: `url(${bannerBg})` }}
         >
             {' '}
             {/* Add overflow-auto here */}
-            <div class="overflow-x-auto scrollbar-hide">
-                <div class="flex flex-col-reverse md:flex-row max-w-[1200px] mx-auto gap-8 items-center md:items-start lg:items-center">
-                    <div class="text-center md:text-left lg:max-w-[478px]">
-                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold lg:leading-tight md:mb-6">
+            <div className="overflow-x-auto scrollbar-hide">
+                <div className="flex flex-col-reverse md:flex-row max-w-[1200px] mx-auto gap-8 items-center md:items-start lg:items-center">
+                    <div className="text-center md:text-left lg:max-w-[478px]">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold lg:leading-tight md:mb-6">
                             {data && data.headings[0]}
                         </h2>
                         <button
                             type="button"
-                            class="inline-flex relative items-center gap-2 justify-center 
+                            className="inline-flex relative items-center gap-2 justify-center 
                                     rounded-sm font-semibold whitespace-nowrap ring-offset-background 
                                     transition disabled:pointer-events-none disabled:opacity-50 
                                     focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
@@ -29,18 +29,18 @@ const Banner = ({ data }) => {
                             Sign up
                         </button>
 
-                        <div class="oauth h-full w-full justify-start md:items-start mt-5 md:mt-20">
-                            <div class="mb-2">
-                                <p class="weight-bold line-height-default align-left size-sm text-size-sm variant-subtle with-icon-space svelte-17v69ua">
+                        <div className="oauth h-full w-full justify-start md:items-start mt-5 md:mt-20">
+                            <div className="mb-2">
+                                <p className="weight-bold line-height-default align-left size-sm text-size-sm variant-subtle with-icon-space svelte-17v69ua">
                                     Or sign up with
                                 </p>
                             </div>
-                            <div class="flex gap-2 justify-center md:justify-start">
+                            <div className="flex gap-2 justify-center md:justify-start">
                                 <button className="w-1/4 md:w-min inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-grey-400 text-white betterhover:hover:bg-grey-300 betterhover:hover:text-white focus-visible:outline-white text-sm leading-none shadow-md py-[0.8125rem] px-[1rem]">
                                     <svg
                                         fill="none"
                                         viewBox="0 0 96 96"
-                                        class="svg-icon"
+                                        className="svg-icon"
                                     >
                                         <title>Facebook Icon</title>
                                         <path
@@ -54,7 +54,7 @@ const Banner = ({ data }) => {
                                     </svg>
                                 </button>
 
-                                <button class="w-1/4 md:w-min inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-grey-400 text-white betterhover:hover:bg-grey-300 betterhover:hover:text-white focus-visible:outline-white text-sm leading-none shadow-md py-[0.8125rem] px-[1rem]">
+                                <button className="w-1/4 md:w-min inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-grey-400 text-white betterhover:hover:bg-grey-300 betterhover:hover:text-white focus-visible:outline-white text-sm leading-none shadow-md py-[0.8125rem] px-[1rem]">
                                     <svg
                                         id="layer-google-logo"
                                         xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@ const Banner = ({ data }) => {
                                     </svg>
                                 </button>
 
-                                <button class="w-1/4 md:w-min inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-grey-400 text-white betterhover:hover:bg-grey-300 betterhover:hover:text-white focus-visible:outline-white text-sm leading-none shadow-md py-[0.8125rem] px-[1rem]">
+                                <button className="w-1/4 md:w-min inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-grey-400 text-white betterhover:hover:bg-grey-300 betterhover:hover:text-white focus-visible:outline-white text-sm leading-none shadow-md py-[0.8125rem] px-[1rem]">
                                     <svg
                                         fill="none"
                                         viewBox="0 0 97 96"
@@ -142,7 +142,7 @@ const Banner = ({ data }) => {
                                     </svg>
                                 </button>
 
-                                <button class="w-1/4 md:w-min inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-grey-400 text-white betterhover:hover:bg-grey-300 betterhover:hover:text-white focus-visible:outline-white text-sm leading-none shadow-md py-[0.8125rem] px-[1rem]">
+                                <button className="w-1/4 md:w-min inline-flex relative items-center gap-2 justify-center rounded-sm font-semibold whitespace-nowrap ring-offset-background transition disabled:pointer-events-none disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:scale-[0.98] bg-grey-400 text-white betterhover:hover:bg-grey-300 betterhover:hover:text-white focus-visible:outline-white text-sm leading-none shadow-md py-[0.8125rem] px-[1rem]">
                                     <svg
                                         fill="none"
                                         viewBox="0 0 96 96"
@@ -167,7 +167,7 @@ const Banner = ({ data }) => {
                             </div>
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-4">
                         <div
                             style={{
                                 display: 'contents', // CSS custom property
@@ -175,7 +175,7 @@ const Banner = ({ data }) => {
                             }}
                         >
                             <div
-                                class=" rounded-2xl overflow-hidden relative basis-6/12 "
+                                className=" rounded-2xl overflow-hidden relative basis-6/12 "
                                 style={{
                                     border: '2px solid var(--border-color)',
                                 }}
@@ -195,7 +195,7 @@ const Banner = ({ data }) => {
                             }}
                         >
                             <div
-                                class=" rounded-2xl overflow-hidden relative basis-6/12 "
+                                className=" rounded-2xl overflow-hidden relative basis-6/12 "
                                 style={{
                                     border: '2px solid var(--border-color)',
                                 }}

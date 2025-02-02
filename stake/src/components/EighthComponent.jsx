@@ -10,7 +10,7 @@ const EighthComponent = ({ data }) => {
                 <h2 className="text-[28px] lg:text-4xl font-bold mb-4 leading-normal">
                     {data && data.headings[0]}
                 </h2>
-                <p className="max-lg:text-sm font-semibold text-gray-400 mb-6">
+                <p className="max-lg:text-sm font-medium mb-6">
                     {data && data.paragraphs[0]}
                 </p>
                 <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded w-full lg:w-min flex justify-center">

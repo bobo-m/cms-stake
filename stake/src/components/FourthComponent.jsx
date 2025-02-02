@@ -142,23 +142,12 @@
 // };
 
 // export default FourthComponent;
-import React, { useState, useEffect } from 'react'
+
 import '../components/four.css'
 
 const FourthComponent = ({ data }) => {
-    const [currentImage, setCurrentImage] = useState(0)
-
     // Array of image URLs
     const images = data?.images || []
-
-    useEffect(() => {
-        if (!data) return
-        const interval = setInterval(() => {
-            setCurrentImage((prev) => (prev + 1) % (images.length || 0))
-        }, 3000) // Change image every 3 seconds
-
-        return () => clearInterval(interval) // Cleanup on component unmount
-    }, [images.length])
 
     return (
         <div className="bg-grey-600 h-110 flex items-center justify-center pt-10 md:py-20 px-5 md:px-8">
@@ -169,22 +158,7 @@ const FourthComponent = ({ data }) => {
                     {images.map((image, index) => (
                         <div
                             key={index}
-                            className={`card absolute w-full top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4 transition-all duration-1000 ease-in-out`}
-                            style={{
-                                zIndex:
-                                    currentImage === index
-                                        ? 10
-                                        : index < currentImage
-                                        ? 1
-                                        : 5,
-                                transform:
-                                    currentImage === index
-                                        ? 'translateY(0) scale(1)'
-                                        : currentImage > index
-                                        ? 'translateY(50px) scale(0.8)'
-                                        : 'translateY(-50px) scale(0.6)',
-                                opacity: currentImage === index ? 1 : 0,
-                            }}
+                            className={`card absolute w-full max-w-[440px] top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4`}
                         >
                             <img
                                 src={image}
@@ -204,7 +178,9 @@ const FourthComponent = ({ data }) => {
                     <h1 className="text-[28px] leading-tight lg:text-4xl font-bold mb-6">
                         {data && data.headings[0]}
                     </h1>
-                    <p className="text-lg mb-8">{data && data.paragraphs[0]}</p>
+                    <p className="font-medium mb-8">
+                        {data && data.paragraphs[0]}
+                    </p>
                     <button className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-md text-lg font-semibold">
                         Learn more
                     </button>

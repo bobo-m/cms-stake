@@ -9,7 +9,9 @@ const CasinoTable = ({ data }) => {
                     <th className="p-4 text-left ">Game</th>
                     <th className="p-4 text-left max-md:hidden">User</th>
                     <th className="p-4 max-md:hidden">Time</th>
-                    <th className="p-4">Bet Amount</th>
+                    <th className="p-4 max-md:hidden">Bet Amount</th>
+                    <th className="p-4 max-md:hidden">Multiplier</th>
+                    <th className="p-4">Payout</th>
                 </tr>
             </thead>
             <tbody className="bg-inherit">
@@ -31,7 +33,13 @@ const CasinoTable = ({ data }) => {
                                 hour12: true,
                             })}
                         </td>
-                        <td className="p-4">${entry.bet_amount}</td>
+                        <td className="p-4 max-md:hidden">
+                            ${entry.bet_amount}
+                        </td>
+                        <td className="p-4 max-md:hidden">
+                            ${entry.multiplier} x
+                        </td>
+                        <td className="p-4">${entry.payout}</td>
                     </tr>
                 ))}
             </tbody>

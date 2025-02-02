@@ -11,7 +11,7 @@ const SixthComponent = ({ data }) => {
             <h2 className="text-[28px] lg:text-4xl font-bold mb-4 leading-normal lg:px-40 lg:text-center">
                 {data && data.headings[0]}
             </h2>
-            <p className="tex-sm lg:text-2xl text-gray-400 mb-6 lg:px-40 lg:text-center">
+            <p className="tex-sm lg:text-base font-medium mb-6 lg:px-40 lg:text-center">
                 {data && data.paragraphs[0]}
             </p>
             <div className="grid lg:has-[.item:nth-child(1):hover]:grid-cols-[calc(60%-9px)_calc(40%-9px)] lg:has-[.item:nth-child(2):hover]:grid-cols-[calc(40%-9px)_calc(60%-9px)] grid-rows-[275px_275px] sm:grid-rows-none sm:grid-cols-[calc(50%-9px)_calc(50%-9px)] md:h-[664px] md:gap-[18px] gap-3 pt-6 w-full max-w-[1200px] transition-all duration-150 delay-100 mx-auto place-items-center">

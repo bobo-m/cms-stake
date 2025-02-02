@@ -11,7 +11,7 @@ const SeventhComponent = ({ data }) => {
                 <h2 className="text-[28px] lg:text-4xl font-bold mb-4 leading-normal">
                     {data && data.headings[0]}
                 </h2>
-                <p className="max-lg:text-sm font-semibold text-gray-400 mb-6">
+                <p className="max-lg:text-sm font-medium mb-6">
                     {data && data.paragraphs[0]}
                 </p>
             </div>

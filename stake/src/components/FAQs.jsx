@@ -35,8 +35,8 @@ const FaqItem = ({ data, isOpen = false }) => {
                     menuOpen ? 'block' : 'hidden'
                 } text-grey-200 px-5 py-3 space-y-3 text-sm`}
             >
-                {data.answer.split('\n').map((part) => (
-                    <p>{part}</p>
+                {data.answer.split('\n').map((part, index) => (
+                    <p key={index}>{part}</p>
                 ))}
             </div>
         </div>
@@ -52,7 +52,7 @@ const FAQs = () => {
                 </h2>
                 <button
                     type="button"
-                    class="md:inline-flex relative items-center gap-2 justify-center 
+                    className="md:inline-flex relative items-center gap-2 justify-center 
                     rounded-lg lg:rounded-sm font-semibold whitespace-nowrap ring-offset-background 
                     transition disabled:pointer-events-none disabled:opacity-50 
                     focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
@@ -66,12 +66,12 @@ const FAQs = () => {
             </div>
             <div className="flex flex-1 flex-col gap-2 max-md:w-full">
                 {faqsData.map((data, index) => (
-                    <FaqItem data={data} isOpen={index === 0} />
+                    <FaqItem data={data} isOpen={index === 0} key={index} />
                 ))}
             </div>
             <button
                 type="button"
-                class="inline-flex relative items-center gap-2 justify-center 
+                className="max-md:inline-flex relative items-center gap-2 justify-center 
                     rounded-lg lg:rounded-sm font-semibold whitespace-nowrap ring-offset-background 
                     transition disabled:pointer-events-none disabled:opacity-50 
                     focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
